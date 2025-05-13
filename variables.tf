@@ -1,6 +1,6 @@
 variable "region" {}
 
-variable "access_key" {
+/*variable "access_key" {
   description = "access_key_hw"
   type        = string
   sensitive   = true
@@ -9,7 +9,7 @@ variable "secret_key" {
   description = "secret_key_hw"
   type        = string
   sensitive   = true
-}
+}*/
 
 ## Network variables ##
 
