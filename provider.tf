@@ -8,6 +8,6 @@ terraform {
 }
 provider "huaweicloud" {
   region     = var.region
-  access_key = var.access_key
-  secret_key = var.secret_key
+  #access_key = var.access_key    # Not necessaty if you configure the env vars
+  #secret_key = var.secret_key    # Not necessaty if you configure the env vars
 }
