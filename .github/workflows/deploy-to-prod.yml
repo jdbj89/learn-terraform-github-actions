@@ -55,9 +55,8 @@ jobs:
       # Generates an execution plan for Terraform
       - name: Terraform Plan
         run: terraform plan -input=false
-        with:
 
-
+      # Manual Approval
       - uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
