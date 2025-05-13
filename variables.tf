@@ -34,14 +34,14 @@ variable "sg_ingress_rules1" {
     default     = {
     }
 }
-
+/*
 variable "sg_name2" {}
 
 variable "sg_ingress_rules2" {
     type        = map(map(any))
     default     = {
     }
-}
+}*/
 
 variable "ecs_instances" {
     type        = map(map(any))

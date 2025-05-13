@@ -27,7 +27,7 @@ module "sg1" {
 module "ecs" {
   for_each          = var.ecs_instances
   source              = "./modules/ecs"
-  depends_on          = [module.vpc, module.subnet, module.sg1, module.sg2]
+  depends_on          = [module.vpc, module.subnet, module.sg1]
   region              = var.region
   ecs_name            = each.value.name
   ecs_password        = each.value.pass
@@ -48,23 +48,3 @@ module "ecs" {
   eip_bandwidth_size  = each.value.banw_size
   ecs_tags            = var.ecs_tags
 }
-
-/*module "rds" {
-  source = "./modules/rds"
-  depends_on = [module.vpc, module.sg1, module.sg2]
-  for_each = { for rds_config in var.rds_configurations : rds_config.instance_name => rds_config }
-  flavor_config = {
-    db_type       =   each.value.flavor_config.db_type
-    db_version    =   each.value.flavor_config.db_version
-    instance_mode =   each.value.flavor_config.instance_mode
-    vcpus         =   each.value.flavor_config.vcpus
-    memory        =   each.value.flavor_config.memory
-    group_type    =   each.value.flavor_config.group_type
-  }
-  instance_name  = each.value.instance_name
-  vpc_id         = module.vpc.vpc_id
-  subnet_name    = each.value.subnet_name
-  sg_name        = each.value.security_group_name
-  availability_zone = each.value.availability_zone
-  instance_password = each.value.instance_password
-}*/
