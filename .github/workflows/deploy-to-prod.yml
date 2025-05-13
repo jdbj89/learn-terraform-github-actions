@@ -14,7 +14,7 @@ permissions:
     issues: write
 
 jobs:
-  gcp-deploy:
+  hwc-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Git Repository
@@ -42,6 +42,6 @@ jobs:
           issue-body: "Review the terraform plan, then approve or deny the deployment of v1.0.0 to prod."
           exclude-workflow-initiator-as-approver: false
 
-      - name: Terraform apply
+      - name: Terraform apply 
         run: |
-          terraform apply
+          terraform apply -auto-approve
